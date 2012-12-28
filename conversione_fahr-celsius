@@ -1,0 +1,39 @@
+//conversione interattiva fahrenheit celsius
+#include <stdio.h>
+    
+float fc(float n){
+	float c;
+	c=(n-32)*1.8;
+	
+	return c;
+}
+
+float cf(float n){
+	float f;
+	f=n/1.8+32;
+		
+	return f;
+}
+
+main(){
+	float f, c, n;
+	int i=0;
+	char u; /* unita' */
+	
+	printf("convertitore celsius - fahrenheit\n\ninserire la temperatura da convertire: (es. 10 c)\n");
+		
+		while(i==0){ /* non e' scritto nel modo giusto l'input */
+			scanf("%f %c",&n,&u);
+				if(u=='c'||u=='f')
+					i=1;
+				else
+					printf("\nriscrivere l'input nel modo corretto: ");
+		}
+		
+		if(u=='f')
+			printf("%.1f f = %.1f c",n,fc(n));
+		else
+			printf("%.1f c = %.1f f",n,cf(n));
+	
+	return 0;
+}
