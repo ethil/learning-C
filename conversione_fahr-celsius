@@ -1,39 +1,48 @@
 //conversione interattiva fahrenheit celsius
+
 #include <stdio.h>
+#include <stdbool.h>
     
-float fc(float n){
-	float c;
-	c=(n-32)*1.8;
-	
-	return c;
+float celsius(float n);
+float fahr(float n);
+
+
+int main(void){
+    float f, c, n;
+    char u; /* unita' */
+    bool input=false;
+
+    printf("convertitore celsius - fahrenheit\ninserire la temperatura da convertire: (es. 10 c)\n");
+
+        do{
+            scanf("%f %s",&n,&u);
+                if(u=='c'||u=='f')
+                    input=true;
+                else
+                    printf("\nriscrivere l'input nel modo corretto: ");
+        
+        }while(input==false);
+
+        if(u=='f')
+            printf("%.1f f = %.1f c\n",n,celsius(n));
+        else
+            printf("%.1f c = %.1f f\n",n,fahr(n));
+
+    return 0;
 }
 
-float cf(float n){
-	float f;
-	f=n/1.8+32;
-		
-	return f;
+/* ========================== */
+
+float celsius(float n){
+    float c;
+    c=(n-32)*1.8;
+
+    return c;
 }
 
-main(){
-	float f, c, n;
-	int i=0;
-	char u; /* unita' */
-	
-	printf("convertitore celsius - fahrenheit\n\ninserire la temperatura da convertire: (es. 10 c)\n");
-		
-		while(i==0){ /* non e' scritto nel modo giusto l'input */
-			scanf("%f %c",&n,&u);
-				if(u=='c'||u=='f')
-					i=1;
-				else
-					printf("\nriscrivere l'input nel modo corretto: ");
-		}
-		
-		if(u=='f')
-			printf("%.1f f = %.1f c",n,fc(n));
-		else
-			printf("%.1f c = %.1f f",n,cf(n));
-	
-	return 0;
+float fahr(float n){
+    float f;
+    f=n/1.8+32;
+
+    return f;
 }
