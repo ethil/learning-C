@@ -1,11 +1,8 @@
-//conversione interattiva fahrenheit celsius
+/* conversione interattiva fahrenheit celsius */
 
 #include <stdio.h>
 #include <stdbool.h>
-    
-float celsius(float n);
-float fahr(float n);
-
+#include <temperatura.h>
 
 int main(void){
     float f, c, n;
@@ -29,20 +26,4 @@ int main(void){
             printf("%.1f c = %.1f f\n",n,fahr(n));
 
     return 0;
-}
-
-/* ========================== */
-
-float celsius(float n){
-    float c;
-    c=(n-32)*1.8;
-
-    return c;
-}
-
-float fahr(float n){
-    float f;
-    f=n/1.8+32;
-
-    return f;
 }
